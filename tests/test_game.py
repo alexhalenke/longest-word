@@ -37,3 +37,9 @@ class TestGame:
         assert new_game.is_valid(test_word) is False
         # teardown
         assert new_game.grid == list(test_grid)
+
+    def test_unknown_word_is_invalid(self):
+        """A word that is not in the english directory should notbe valid"""
+        new_game=Game()
+        new_game.grid = list('KWIENFUQW')
+        assert new_game.is_valid('FEUN') is False
